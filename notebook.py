@@ -478,7 +478,7 @@ def render_csv(file, columns = None, sort_by=None, average_by=None, skip=0):
         if df is None:
             df = d
         else:
-            df = df._append(d)
+            df = df.append(d)
             
     df = df[skip:]
     if sort_by:
@@ -686,7 +686,7 @@ def IC_avg_and_combine(*argc):
                  ET=df['ET'].sum(),
                  cmdlineMHz=df['cmdlineMHz'].mean(),
                  realMHz=df['realMHz'].mean())
-        all = all.append(r, ignore_index=True)
+        all = all._append(r, ignore_index=True)
 
     return all
 
